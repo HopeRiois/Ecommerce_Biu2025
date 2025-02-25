@@ -21,15 +21,26 @@
       </template>
       Descargar app
     </v-btn>
-    <v-btn>
+    <v-btn @click.prevent="goToLogin">
       Registrar / Iniciar sesion
     </v-btn>
   </v-app-bar>
 </template>
 
 <script>
-export default {
+import { useRouter } from 'vue-router';
 
+export default {
+  setup(){
+    const router = useRouter();
+
+    const goToLogin = () =>{
+      router.push('/iniciar-sesion');
+    };
+    return {
+      goToLogin
+    };
+}
 }
 </script>
 

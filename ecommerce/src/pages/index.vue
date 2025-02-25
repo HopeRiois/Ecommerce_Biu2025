@@ -221,11 +221,11 @@
 </template>
 
 <script setup>
-import NavBar from '@/components/NavBar.vue'
-import Popular from '@/components/Popular.vue'
-import Featured from '@/components/Featured.vue'
-import Client from '@/components/Client.vue'
-import Foot from '@/components/Footer.vue'
+import NavBar from '@/components/Home/NavBar.vue'
+import Popular from '@/components/Home/Popular.vue'
+import Featured from '@/components/Home/Featured.vue'
+import Client from '@/components/Home/Client.vue'
+import Foot from '@/components/Home/Footer.vue'
 </script>
 <script>
 export default {

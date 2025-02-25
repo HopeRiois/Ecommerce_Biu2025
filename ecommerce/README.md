@@ -30,4 +30,11 @@ Se hace merge de la primera entrega a la rama principal del proyecto.
 
 -----
 
+----- feature sprint2 
+
+#Commit login page 
+Se instala Pinia para el manejo de usuario en la aplicación. Se crea una pantalla para inicio de sesión, registrar usuario, 
+olvido contraseña básica con validaciones simples.
+
+-----
 Copyright (c) 2016-present Vuetify, LLC
