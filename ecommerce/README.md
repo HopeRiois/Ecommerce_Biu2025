@@ -36,5 +36,9 @@ Se hace merge de la primera entrega a la rama principal del proyecto.
 Se instala Pinia para el manejo de usuario en la aplicación. Se crea una pantalla para inicio de sesión, registrar usuario, 
 olvido contraseña básica con validaciones simples.
 
+#Commit Adjustment login and notification
+Se ajusta los formularios del login, mejorandose aspectos visuales, imagenes, labels, entre otros. Se crea una pantalla de notificación
+que funciona de manera transversal a toda la aplicación con el objetivo de mostrar las alertas de una manera agradable para el usuario.
+
 -----
 Copyright (c) 2016-present Vuetify, LLC

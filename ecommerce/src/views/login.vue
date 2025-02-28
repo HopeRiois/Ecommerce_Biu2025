@@ -2,230 +2,346 @@
   <v-container class="d-flex align-center justify-center min-vh-100">
     <v-card
       class="pa-6 rounded-lg shadow-lg"
-      max-width="400"
+      width="60vw" 
+      height="80vh"
     >
-      <!-- <h2 v-if="!forgotPassword.active">
-        {{ isRegistering ? "Registrarse" : "Iniciar Sesión" }}
-      </h2>
-      <h2 v-else>
-        {{ forgotPassowrdStepTittle }}
-      </h2> -->
-      <!-- login form-->
-      <v-form
-        v-if="!isRegistering && !forgotPassword.active"
-        @submit.prevent="handleLogin"
+      <v-row 
+        no-gutters 
+        class="fill-height"
       >
-        <h2 class="text-center text-h5 font-weight-bold mb-4">
-          Iniciar Sesión
-        </h2>
-        <v-text-field
-          v-model="loginForm.identifier"
-          placeholder="Usuario o Correo"
-          required
+        <v-col
+          cols="5"
+          class="d-flex align-center justify-center fill-height"
+          :style="{ backgroundColor: colorLeftPanel }"
         />
-        <v-text-field
-          v-model="loginForm.password"
-          type="password"
-          placeholder="Contraseña"
-          required
-        />
-        <v-btn
-          type="sumit"
-          block
-          class="bg-blue-darken-1 text-white"
+        <v-col
+          cols="7"
+          class="pa-6"
+          fill-height
         >
-          Ingresar
-        </v-btn>
-        <v-btn
-          text
-          class="mt-2 text-blue"
-          @click="forgotPassword.active = true; forgotPassword.step = 1"
-        >
-          ¿Olvidaste tu contraseña?
-        </v-btn>
-        <v-btn
-          text
-          class="mt-1"
-          @click="isRegistering = true"
-        >
-          ¿No tienes cuenta? Regístrate aquí
-        </v-btn>
-      </v-form>
+          <!-- Login form-->
+          <v-form
+            v-if="!isRegistering && !forgotPassword.active"
+            @submit.prevent="handleLogin"
+          >
+            <v-img
+              src="/image/brand.png"
+              height="150"
+              class="img-center mb-2"
+            />
+            <v-spacer />
+            <h2 class="text-center text-h5 font-weight-bold mb-4">
+              Iniciar Sesión
+            </h2>
+            <v-text-field
+              v-model="loginForm.identifier"
+              label="Usuario o Correo"
+              outlined
+              persistent-placeholder
+              required
+            />
+            <v-text-field
+              v-model="loginForm.password"
+              :type="showPasswordLogin ? 'text' : 'password'"
+              label="Contraseña"
+              outlined
+              persistent-placeholder
+              required
+              @click:append-inner="showPasswordLogin = !showPasswordLogin"
+            >
+              <template #append-inner>
+                <v-icon
+                  class="cursor-pointer"
+                  @click="showPasswordLogin = !showPasswordLogin"
+                >
+                  {{ showPasswordLogin ? 'mdi-eye-off' : 'mdi-eye' }}
+                </v-icon>
+              </template>
+            </v-text-field>
+            <v-btn
+              type="sumit"
+              block
+              class="bg-blue-darken-1 text-white"
+            >
+              Ingresar
+            </v-btn>
+            <v-btn
+              text
+              class="mt-2 text-blue"
+              block
+              @click="forgotPassword.active = true; forgotPassword.step = 1"
+            >
+              ¿Olvidaste tu contraseña?
+            </v-btn>
+            <v-btn
+              text
+              class="mt-1"
+              block
+              @click="isRegistering = true"
+            >
+              ¿No tienes cuenta? Regístrate aquí
+            </v-btn>
+          </v-form>
 
-      <!-- Sign up form-->
-      <v-form
-        v-else-if="isRegistering && !forgotPassword.active"
-        @submit.prevent="handleRegister"
-      >
-        <h2 class="text-center text-h5 font-weight-bold mb-4">
-          Registro
-        </h2>
+          <!-- Sign up form-->
+          <v-form
+            v-else-if="isRegistering && !forgotPassword.active"
+            @submit.prevent="handleRegister"
+          >
+            <h2 class="text-center text-h5 font-weight-bold mb-4">
+              Registro
+            </h2>
+            <v-row dense>
+              <v-col cols="6">
+                <v-text-field
+                  v-model="registerForm.firstName"
+                  label="Nombres"
+                  outlined
+                  persistent-placeholder
+                  required
+                />
+              </v-col>
+              <v-col cols="6">
+                <v-text-field
+                  v-model="registerForm.lastName"
+                  label="Apellidos"
+                  outlined
+                  persistent-placeholder
+                  required
+                />
+              </v-col>
+              <v-col cols="6">
+                <v-text-field
+                  v-model="registerForm.userName"
+                  label="Nombre de usuario"
+                  outlined
+                  persistent-placeholder
+                  required
+                />
+              </v-col>
+              <v-col cols="6">
+                <v-text-field
+                  v-model="registerForm.email"
+                  label="email"
+                  outlined
+                  persistent-placeholder
+                  required
+                />
+              </v-col>
+              <v-col cols="6">
+                <v-text-field
+                  v-model="registerForm.phone"
+                  label="Teléfono"
+                  outlined
+                  persistent-placeholder
+                  required
+                />
+              </v-col>
+              <v-col cols="6">
+                <v-text-field
+                  v-model="registerForm.password"
+                  :type="showPasswordRegister ? 'text' : 'password'"
+                  label="Contraseña"
+                  outlined
+                  persistent-placeholder
+                  required
+                  @click:append-inner="showPasswordRegister = !showPasswordRegister"
+                >
+                  <template #append-inner>
+                    <v-icon
+                      class="cursor-pointer"
+                      @click="showPasswordRegister = !showPasswordRegister"
+                    >
+                      {{ showPasswordRegister ? 'mdi-eye-off' : 'mdi-eye' }}
+                    </v-icon>
+                  </template>
+                </v-text-field>
+              </v-col>
+              <v-col cols="6">
+                <v-text-field
+                  v-model="registerForm.bornDate"
+                  type="date"
+                  label="Fecha de nacimiento"
+                  outlined
+                  persistent-placeholder
+                  required
+                />
+              </v-col>
+              <v-col cols="6">
+                <v-text-field
+                  v-model="registerForm.address"
+                  label="Dirección"
+                  outlined
+                  persistent-placeholder
+                /> 
+              </v-col>
+            </v-row>
+            <v-btn
+              type="submit"
+              block
+              class="bg-green-darken-1 text-white"
+            >
+              Registrarse
+            </v-btn>
+            <v-btn
+              text
+              block
+              @click="isRegistering = false"
+            >
+              Volver al Login
+            </v-btn>
+          </v-form>
 
-        <v-text-field
-          v-model="registerForm.firstName"
-          placeholder="Nombres"
-          required
-        />
-        <v-text-field
-          v-model="registerForm.lastName"
-          placeholder="Apellidos"
-          required
-        />
-        <v-text-field
-          v-model="registerForm.userName"
-          placeholder="Nombre de usuario"
-          required
-        />
-        <v-text-field
-          v-model="registerForm.email"
-          type="email"
-          placeholder="Correo"
-          required
-        />
-        <v-text-field
-          v-model="registerForm.phone"
-          placeholder="Teléfono"
-          required
-        />
-        <v-text-field
-          v-model="registerForm.password"
-          type="password"
-          placeholder="Contraseña"
-          required
-        />
-        <v-text-field
-          v-model="registerForm.bornDate"
-          type="date"
-          placeholder="Fecha de nacimiento"
-          required
-        />
-        <v-text-field
-          v-model="registerForm.address"
-          placeholder="Dirección"
-        /> 
-        <v-btn
-          type="submit"
-          block
-          class="bg-green-darken-1 text-white"
-        >
-          Registrarse
-        </v-btn>
-        <v-btn
-          text
-          class="mt-2"
-          @click="isRegistering = false"
-        >
-          Volver al Login
-        </v-btn>
-      </v-form>
+          <!-- Forgot password step one form-->
+          <v-form
+            v-if="forgotPassword.active && forgotPassword.step === 1"
+            @submit.prevent="sendOtp"
+          >
+            <v-img
+              src="/image/otp.png"
+              height="180"
+              class="img-center mb-6"
+            />
+            <h2 class="text-center text-h5 font-weight-bold mb-4">
+              Enviar Código OTP
+            </h2>
 
-      <!-- Forgot password step one form-->
-      <v-form
-        v-if="forgotPassword.active && forgotPassword.step === 1"
-        @submit.prevent="sendOtp"
-      >
-        <h2 class="text-center text-h5 font-weight-bold mb-4">
-          Enviar Código OTP
-        </h2>
+            <v-text-field
+              v-model="forgotPassword.email"
+              type="email"
+              label="Ingresa tu correo"
+              outlined
+              persistent-placeholder
+              required
+            />
+            <v-btn
+              type="submit"
+              block
+              class="bg-yellow-darken-2 text-white"
+            >
+              Enviar código
+            </v-btn>
+            <v-btn
+              text
+              class="mt-2"
+              block
+              @click="forgotPassword.active = false"
+            >
+              Volver al Login
+            </v-btn>
+          </v-form> 
 
-        <v-text-field
-          v-model="forgotPassword.email"
-          type="email"
-          placeholder="Ingresa tu correo"
-          required
-        />
-        <v-btn
-          type="submit"
-          block
-          class="bg-yellow-darken-2 text-white"
-        >
-          Enviar código
-        </v-btn>
-        <v-btn
-          text
-          class="mt-2"
-          @click="forgotPassword.active = false"
-        >
-          Volver al Login
-        </v-btn>
-      </v-form> 
-
-      <!-- Forgot password step opt form-->
-      <v-form
-        v-if="forgotPassword.active && forgotPassword.step === 2"
-        @submit.prevent="verifyOtp"
-      >
-        <h2 class="text-center text-h5 font-weight-bold mb-4">
-          Verificar código OTP
-        </h2>
-        <v-text-field
-          v-model="forgotPassword.otpInput"
-          type="text"
-          placeholder="Ingresa el código OTP"
-          required
-        />
-        <v-btn
-          type="submit"
-          block
-          class="bg-yellow-darken-2 text-white"
-        >
-          Verificar código
-        </v-btn>
-        <p>Intentos restantes: {{ forgotPassword.attempts }}</p>
-        <v-btn
-          text
-          class="mt-2"
-          @click="forgotPassword.active = false"
-        >
-          Volver al Login
-        </v-btn>
-      </v-form>
+          <!-- Forgot password step opt form-->
+          <v-form
+            v-if="forgotPassword.active && forgotPassword.step === 2"
+            @submit.prevent="verifyOtp"
+          >
+            <v-img
+              src="/image/otp.png"
+              height="180"
+              class="img-center mb-6"
+            />
+            <h2 class="text-center text-h5 font-weight-bold mb-4">
+              Verificar código OTP
+            </h2>
+            <v-text-field
+              v-model="forgotPassword.otpInput"
+              type="text"
+              label="Ingresa el código OTP"
+              outlined
+              persistent-placeholder
+              required
+            />
+            <v-btn
+              type="submit"
+              block
+              class="bg-yellow-darken-2 text-white"
+            >
+              Verificar código
+            </v-btn>
+            <v-btn
+              text
+              class="mt-2"
+              block
+              @click="forgotPassword.active = false"
+            >
+              Volver al Login
+            </v-btn>
+            <p 
+              class="mt-4 text-center"
+            >
+              Intentos restantes: {{ forgotPassword.attempts }}
+            </p>
+          </v-form>
     
-      <!-- Forgot password step reset password-->
-      <v-form
-        v-if="forgotPassword.active && forgotPassword.step === 3"
-        @submit.prevent="resetPassword"
-      >
-        <h2 class="text-center text-h5 font-weight-bold mb-4">
-          Restablecer Contraseña
-        </h2>
+          <!-- Forgot password step reset password-->
+          <v-form
+            v-if="forgotPassword.active && forgotPassword.step === 3"
+            @submit.prevent="resetPassword"
+          >
+            <v-img
+              src="/image/otp.png"
+              height="180"
+              class="img-center mb-6"
+            />
+            <h2 class="text-center text-h5 font-weight-bold mb-4">
+              Restablecer Contraseña
+            </h2>
 
-        <v-text-field
-          v-model="forgotPassword.newPassword"
-          type="password"
-          placeholder="Nueva Contraseña"
-          required
-        />
-        <v-text-field
-          v-model="forgotPassword.confirmPassword"
-          type="password"
-          placeholder="Confirmar contraseña"
-          required
-        />
-        <v-btn
-          type="submit"
-          block
-          class="bg-green-darken-1 text-white"
-        >
-          Guardar
-        </v-btn>
-        <v-btn
-          text
-          class="mt-2"
-          @click="forgotPassword.active = false"
-        >
-          Volver al Login
-        </v-btn>
-      </v-form>
-
-      <!-- switch between login and sign up-->
-      <!-- <p
-        v-if="!forgotPassword.active"
-        class="toggle-form text-sm text-gray-600 cursor-pointer hover:underline text-center"
-        @click="toggleForm"
-      >
-        {{ isRegistering ? "¿Ya tienes cuenta? Inicia sesión" : "¿No tienes cuenta? Regístrate" }}
-      </p> -->
+            <v-text-field
+              v-model="forgotPassword.newPassword"
+              :type="showPasswordChange ? 'text' : 'password'"
+              label="Nueva Contraseña"
+              outlined
+              persistent-placeholder
+              required
+              @click:append-inner="showPasswordChange = !showPasswordChange"
+            >
+              <template #append-inner>
+                <v-icon
+                  class="cursor-pointer"
+                  @click="showPasswordChange = !showPasswordChange"
+                >
+                  {{ showPasswordChange ? 'mdi-eye-off' : 'mdi-eye' }}
+                </v-icon>
+              </template>
+            </v-text-field>
+            <v-text-field
+              v-model="forgotPassword.confirmPassword"
+              :type="showPasswordConfirm ? 'text' : 'password'"
+              label="Confirmar contraseña"
+              outlined
+              persistent-placeholder
+              required
+              @click:append-inner="showPasswordConfirm = !showPasswordConfirm"
+            >
+              <template #append-inner>
+                <v-icon
+                  class="cursor-pointer"
+                  @click="showPasswordConfirm = !showPasswordConfirm"
+                >
+                  {{ showPasswordConfirm ? 'mdi-eye-off' : 'mdi-eye' }}
+                </v-icon>
+              </template>
+            </v-text-field>
+            <v-btn
+              type="submit"
+              block
+              class="bg-green-darken-1 text-white"
+            >
+              Guardar
+            </v-btn>
+            <v-btn
+              text
+              class="mt-2"
+              block
+              @click="forgotPassword.active = false"
+            >
+              Volver al Login
+            </v-btn>
+          </v-form>
+        </v-col>
+      </v-row>
     </v-card>
   </v-container>
 </template>
@@ -239,6 +355,13 @@ export default {
         const router = useRouter();
 
         const isRegistering = ref(false);
+        const showPasswordLogin = ref(false);
+        const showPasswordRegister = ref(false);
+        const showPasswordChange = ref(false);
+        const showPasswordConfirm = ref(false);
+
+        const colorLeftPanel = ref('#156082')
+
         const loginForm = ref({ 
             identifier: '', 
             password: ''});
@@ -285,37 +408,38 @@ export default {
 
         const handleRegister = () => {
             //authStore.login(registerForm.value);
-            alert("Registro exitoso. Por favor vuelva a iniciar sesión.");
-            router.push('/iniciar-sesion')
+            window.$notify("Registro exitoso. Por favor vuelva a iniciar sesión.", true);
+            // router.push('/iniciar-sesion')
+            isRegistering.value = false;
         };
 
         const sendOtp = () => {
-            alert(`Código OTP enviado al correo: ${forgotPassword.value.email}`);
+          window.$notify(`Código OTP enviado al correo: ${forgotPassword.value.email}`, true);
             forgotPassword.value.step = 2;
         };
 
         const verifyOtp = () => {
             if(forgotPassword.value.otpInput === forgotPassword.value.otp){
-                alert("Código correcto. Ahora ingrese su nueva contraseña.");
+              window.$notify("Código correcto. Ahora ingrese su nueva contraseña.", true);
                 forgotPassword.value.step = 3;
             } else{
                 if(forgotPassword.value.attempts === 0){
-                    alert("Demasiados intentos fallidos. Regresando al inicio de sesión");
+                  window.$notify("Demasiados intentos fallidos. Regresando al inicio de sesión",false);
                     forgotPassword.value.active = false;
                     forgotPassword.value.step = 1;
                     forgotPassword.value.attempts = 3;
                 } else{
-                    alert("Código incorrecto. Intenta nuevamente.");
+                  window.$notify("Código incorrecto. Intenta nuevamente.",false);
                 }
             }
         };
 
         const resetPassword = () => {
             if(forgotPassword.value.newPassword !== forgotPassword.value.confirmPassword){
-                alert("Las contraseñas no coinciden.");
+              window.$notify("Las contraseñas no coinciden.", false);
                 return;
             }
-            alert("Contraseña restablecida con éxito. Inicia sesión con tu nueva contraseña.");
+            window.$notify("Contraseña restablecida con éxito. Inicia sesión con tu nueva contraseña.", true);
             forgotPassword.value.active = false;
             forgotPassword.value.step = 1;
             forgotPassword.value.attempts = 3;
@@ -323,6 +447,11 @@ export default {
 
         return{
             isRegistering,
+            showPasswordLogin,
+            showPasswordConfirm,
+            showPasswordChange,
+            showPasswordRegister,
+            colorLeftPanel,
             loginForm,
             registerForm,
             forgotPassword,
