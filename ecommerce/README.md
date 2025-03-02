@@ -32,13 +32,17 @@ Se hace merge de la primera entrega a la rama principal del proyecto.
 
 ----- feature sprint2 
 
-#Commit login page 
+#Commit Login page 
 Se instala Pinia para el manejo de usuario en la aplicación. Se crea una pantalla para inicio de sesión, registrar usuario, 
 olvido contraseña básica con validaciones simples.
 
 #Commit Adjustment login and notification
 Se ajusta los formularios del login, mejorandose aspectos visuales, imagenes, labels, entre otros. Se crea una pantalla de notificación
 que funciona de manera transversal a toda la aplicación con el objetivo de mostrar las alertas de una manera agradable para el usuario.
+
+#Commit Login page rules
+Se instala el paquete date-fns, se termina de configurar pinia para el manejo de usuarios, se agrega reglas de validación para los
+formularios, se mejora aspectos visuales de la pantalla de login. 
 
 -----
 Copyright (c) 2016-present Vuetify, LLC
