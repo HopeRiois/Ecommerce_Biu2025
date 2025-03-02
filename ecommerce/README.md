@@ -44,5 +44,26 @@ que funciona de manera transversal a toda la aplicación con el objetivo de most
 Se instala el paquete date-fns, se termina de configurar pinia para el manejo de usuarios, se agrega reglas de validación para los
 formularios, se mejora aspectos visuales de la pantalla de login. 
 
+Pantalla inicial de login con sus respectivas validaciones y opciones.
+![image](https://github.com/user-attachments/assets/24394bb3-4a9f-4704-83b1-4cc66e5fe10c)
+
+Pantalla de registro de usuario con las validaciones del formulario, mensajes de notificaciones.
+![image](https://github.com/user-attachments/assets/64f9d7bc-0f11-4e33-94d4-634e792480fb)
+
+Pantalla de recuperación de clave mediante código OTP paso 1 diligenciamento del correo.
+![image](https://github.com/user-attachments/assets/533fcb5f-a9b6-47f6-9aed-9354967faea5)
+
+Pantalla de recuperación de clave mediante código OTP paso 2 verificación otp con un sistema de 3 intentos disponibles.
+![image](https://github.com/user-attachments/assets/cf48dd56-b541-4e29-938c-12b0e7784769)
+
+Pantalla de recuperación de clave mediante código OTP paso 3 restablecer contraseña.
+![image](https://github.com/user-attachments/assets/26e03e48-ffcb-4a52-af5f-553edcf2b550)
+
+Pantalla inicial del ecommerce luego de iniciar sesión donde se muestra la información del usuario logeado.
+![image](https://github.com/user-attachments/assets/460facae-e19c-404f-9382-6794d1cb5cc7)
+
+#Merge Feature/sprint2 to main
+Se hace merge de la segunda entrega a la rama principal del proyecto.
+
 -----
 Copyright (c) 2016-present Vuetify, LLC
