@@ -21,15 +21,39 @@
       </template>
       Descargar app
     </v-btn>
-    <v-btn>
-      Registrar / Iniciar sesion
+    <v-btn
+      v-if="!isAuthenticated"
+      @click.prevent="goToLogin"
+    >
+      Registrar / Iniciar sesión
+    </v-btn>
+    <v-btn
+      v-else
+      @click.prevent="goToLogin"
+    >
+      {{ user }}
     </v-btn>
   </v-app-bar>
 </template>
 
 <script>
-export default {
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/store/auth';
 
+export default {
+  setup(){
+    const router = useRouter();
+    const authStore = useAuthStore();
+
+    const goToLogin = () =>{
+      router.push('/iniciar-sesion');
+    };
+    return {
+      goToLogin,
+      isAuthenticated: authStore.isAuthenticated,
+      user: authStore.user.username
+    };
+}
 }
 </script>
 
