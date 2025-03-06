@@ -8,7 +8,13 @@
             cols="12"
             sm="12"
           >
-            <v-carousel>
+            <v-progress-circular
+              v-if="cargando"
+              indeterminate
+              color="primary"
+            />
+
+            <v-carousel v-if="!cargando && items.length">
               <v-carousel-item
                 v-for="(item, i) in items"
                 :key="i"
@@ -40,6 +46,9 @@
                 </v-row>
               </v-carousel-item>
             </v-carousel>
+            <p v-else-if="!cargando">
+              No hay productos disponibles
+            </p>
           </v-col>
           <v-toolbar color="transparent">
             <v-toolbar-title>Productos populares</v-toolbar-title>
@@ -220,51 +229,74 @@
   </v-app>
 </template>
 
-<script setup>
+<script>
 import NavBar from '@/components/Home/NavBar.vue'
 import Popular from '@/components/Home/Popular.vue'
 import Featured from '@/components/Home/Featured.vue'
 import Client from '@/components/Home/Client.vue'
 import Foot from '@/components/Home/Footer.vue'
-</script>
-<script>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
 export default {
-  data() {
-    return {
-      items: [
-        {
-          src: "7.jpg",
-          title: "Articulo 1",
-          text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
-        },
-        {
-          src: "1.jpg",
-          title: "Articulo 2",
-          text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
-        },
-        {
-          src: "2.jpg",
-          title: "Articulo 3",
-          text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
-        },
-        {
-          src: "3.jpg",
-          title: "Articulo 4",
-          text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
-        },
-        {
-          src: "4.jpg",
-          title: "Articulo 5",
-          text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
-        },
-        {
-          src: "5.jpg",
-          title: "Articulo 6",
-          text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
-        },
-      ],
+  
+  setup() {
+    const items = ref([]);
+    const cargando = ref(true);
+
+    const obtenerItems = async () => {
+      try {
+        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_ITEM;
+        const respuesta = await axios.get(url);
+        items.value = respuesta.data;
+      } catch (error) {
+        console.error('Error al obtener data:', error);
+      }finally{
+        cargando.value = false;
+      }
     };
+
+    onMounted(() => {
+      obtenerItems();
+    });
+    return { items, cargando, NavBar, Popular, Featured, Client, Foot }
   },
+  // data() {
+  //   return {
+  //     items: [
+  //       {
+  //         src: "7.jpg",
+  //         title: "Articulo 1",
+  //         text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+  //       },
+  //       {
+  //         src: "1.jpg",
+  //         title: "Articulo 2",
+  //         text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+  //       },
+  //       {
+  //         src: "2.jpg",
+  //         title: "Articulo 3",
+  //         text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+  //       },
+  //       {
+  //         src: "3.jpg",
+  //         title: "Articulo 4",
+  //         text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+  //       },
+  //       {
+  //         src: "4.jpg",
+  //         title: "Articulo 5",
+  //         text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+  //       },
+  //       {
+  //         src: "5.jpg",
+  //         title: "Articulo 6",
+  //         text: "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+  //       },
+  //     ],
+  //   };
+  // },
 };
 </script>
 <style scoped>

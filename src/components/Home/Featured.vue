@@ -48,35 +48,58 @@
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
 export default {
-  data: () => ({
-    featured: [
-      {
-        img: "image/5.png",
-        title: "Appel Mac Book Pro",
-        price: "$ 93.358.01",
-        bio: " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
-      },
-      {
-        img: "image/6.png",
-        title: "Appel Mac Book Pro",
-        price: "$ 93.358.01",
-        bio: " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
-      },
-      {
-        img: "image/7.png",
-        title: "Appel Mac Book Pro",
-        price: "$ 93.358.01",
-        bio: " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
-      },
-      {
-        img: "image/8.png",
-        title: "Appel Mac Book Pro",
-        price: "$ 93.358.01",
-        bio: " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
-      },
-    ],
-  }),
+  
+  setup() {
+    const featured = ref([]);
+
+    const obtenerFeatured = async () => {
+      try {
+        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_FEATURED;
+        const respuesta = await axios.get(url);
+        featured.value = respuesta.data;
+      } catch (error) {
+        console.error('Error al obtener data:', error);
+      }
+    };
+
+    onMounted(() => {
+      obtenerFeatured();
+    });
+
+    return { featured }
+  },
+  // data: () => ({
+  //   featured: [
+  //     {
+  //       img: "image/5.png",
+  //       title: "Appel Mac Book Pro",
+  //       price: "$ 93.358.01",
+  //       bio: " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+  //     },
+  //     {
+  //       img: "image/6.png",
+  //       title: "Appel Mac Book Pro",
+  //       price: "$ 93.358.01",
+  //       bio: " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+  //     },
+  //     {
+  //       img: "image/7.png",
+  //       title: "Appel Mac Book Pro",
+  //       price: "$ 93.358.01",
+  //       bio: " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+  //     },
+  //     {
+  //       img: "image/8.png",
+  //       title: "Appel Mac Book Pro",
+  //       price: "$ 93.358.01",
+  //       bio: " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+  //     },
+  //   ],
+  // }),
 };
 </script>
 

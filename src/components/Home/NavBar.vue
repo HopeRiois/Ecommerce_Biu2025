@@ -1,7 +1,14 @@
 <template>
   <v-app-bar flat>
     <template #prepend>
-      <v-app-bar-nav-icon />
+      <!--<v-app-bar-nav-icon />
+      -->
+      <v-btn
+        icon
+        @click="menuOpen = !menuOpen"
+      >
+        <v-icon>{{ menuOpen ? 'mdi-close' : 'mdi-menu' }}</v-icon>
+      </v-btn>
     </template>
     <v-app-bar-title>BIU</v-app-bar-title>
     <v-spacer />
@@ -22,7 +29,7 @@
       Descargar app
     </v-btn>
     <v-btn
-      v-if="!isAuthenticated"
+      v-if="!authStore.isAuthenticated"
       @click.prevent="goToLogin"
     >
       Registrar / Iniciar sesión
@@ -31,16 +38,20 @@
       v-else
       @click.prevent="goToLogin"
     >
-      {{ user }}
+      {{ authStore.user?.username || 'Invitado' }}
     </v-btn>
   </v-app-bar>
+
+  <MenuBar v-model:menu-open="menuOpen" />
 </template>
 
 <script>
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '@/store/auth';
+import MenuBar from "@/components/Home/MenuBar.vue";
 
 export default {
+  components: { MenuBar },
   setup(){
     const router = useRouter();
     const authStore = useAuthStore();
@@ -50,10 +61,14 @@ export default {
     };
     return {
       goToLogin,
-      isAuthenticated: authStore.isAuthenticated,
-      user: authStore.user.username
+      authStore
     };
-}
+  },
+  data() {
+    return {
+      menuOpen: false
+    };
+  }
 }
 </script>
 
