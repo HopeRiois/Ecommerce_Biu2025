@@ -80,5 +80,9 @@ Se installa Axios para realizar las peticiones http que van a alimentar el front
 allí se podrán especificar las rutas de las apis que van a ser consumidas, por el momento se manejará con json web server con el archivo
 db.json. Se cambian los datos estaticos a los creados en el archivo db json.
 
+#Commit Mapping endpoints to static methods
+Se instala uuid, se crea modelos de request y response para el manejo de peticiones, se alimenta la funcionalidad de la pantalla de inicio
+con las peticiones creadas mediante json server, se finaliza la lógica de inicio de sesión, creación de usuario y recuperación de clave mediante los endpoints correspondientes.
+
 -----
 Copyright (c) 2016-present Vuetify, LLC

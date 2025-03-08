@@ -14,6 +14,7 @@
     "axios": "^1.8.1",
     "ecommerce": "file:",
     "roboto-fontface": "*",
+    "uuid": "^11.1.0",
     "vue": "^3.4.31",
     "vuetify": "^3.6.14"
   },

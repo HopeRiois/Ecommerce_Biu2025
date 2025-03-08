@@ -38,7 +38,7 @@
       v-else
       @click.prevent="goToLogin"
     >
-      {{ authStore.user?.username || 'Invitado' }}
+      {{ authStore.user?.userName || 'Invitado' }}
     </v-btn>
   </v-app-bar>
 
