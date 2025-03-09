@@ -3,7 +3,7 @@
     {
       "id": "1",
       "nombre": "Smartphone X100",
-      "descripción": "Teléfono inteligente con pantalla OLED y cámara de 108 MP",
+      "descripcion": "Teléfono inteligente con pantalla OLED y cámara de 108 MP",
       "categoria": "Electrónica",
       "tipo_producto": "oferta",
       "valor": 699,
@@ -12,7 +12,7 @@
     {
       "id": "2",
       "nombre": "Laptop UltraBook Pro",
-      "descripción": "Laptop ultradelgada con procesador i7 y 16GB RAM",
+      "descripcion": "Laptop ultradelgada con procesador i7 y 16GB RAM",
       "categoria": "Computación",
       "tipo_producto": "cliente",
       "valor": 1299,
@@ -21,7 +21,7 @@
     {
       "id": "3",
       "nombre": "Audífonos Inalámbricos ZX",
-      "descripción": "Audífonos con cancelación de ruido y sonido envolvente",
+      "descripcion": "Audífonos con cancelación de ruido y sonido envolvente",
       "categoria": "Accesorios",
       "tipo_producto": "popular",
       "valor": 199,
@@ -30,7 +30,7 @@
     {
       "id": "4",
       "nombre": "Smartwatch FitBand 5",
-      "descripción": "Reloj inteligente con monitoreo de actividad y frecuencia cardíaca",
+      "descripcion": "Reloj inteligente con monitoreo de actividad y frecuencia cardíaca",
       "categoria": "Wearables",
       "tipo_producto": "destacado",
       "valor": 149,
@@ -39,7 +39,7 @@
     {
       "id": "5",
       "nombre": "Tablet Pro 12",
-      "descripción": "Pantalla de 12 pulgadas, 256GB de almacenamiento y lápiz óptico",
+      "descripcion": "Pantalla de 12 pulgadas, 256GB de almacenamiento y lápiz óptico",
       "categoria": "Tablets",
       "tipo_producto": "oferta",
       "valor": 899,
@@ -48,7 +48,7 @@
     {
       "id": "6",
       "nombre": "Cámara Reflex D500",
-      "descripción": "Cámara profesional con sensor Full Frame y lente 24-70mm",
+      "descripcion": "Cámara profesional con sensor Full Frame y lente 24-70mm",
       "categoria": "Fotografía",
       "tipo_producto": "cliente",
       "valor": 1899,
@@ -57,7 +57,7 @@
     {
       "id": "7",
       "nombre": "Teclado Mecánico RGB",
-      "descripción": "Teclado mecánico con iluminación RGB y switches personalizables",
+      "descripcion": "Teclado mecánico con iluminación RGB y switches personalizables",
       "categoria": "Accesorios",
       "tipo_producto": "popular",
       "valor": 120,
@@ -66,7 +66,7 @@
     {
       "id": "8",
       "nombre": "Monitor 4K Ultra HD",
-      "descripción": "Monitor de 32 pulgadas con resolución 4K y tasa de refresco de 144Hz",
+      "descripcion": "Monitor de 32 pulgadas con resolución 4K y tasa de refresco de 144Hz",
       "categoria": "Computación",
       "tipo_producto": "destacado",
       "valor": 799,
@@ -75,7 +75,7 @@
     {
       "id": "9",
       "nombre": "Router Wi-Fi 6",
-      "descripción": "Router de última generación con tecnología Wi-Fi 6 y cobertura extendida",
+      "descripcion": "Router de última generación con tecnología Wi-Fi 6 y cobertura extendida",
       "categoria": "Redes",
       "tipo_producto": "oferta",
       "valor": 199,
@@ -84,7 +84,7 @@
     {
       "id": "10",
       "nombre": "Disco Duro Externo 2TB",
-      "descripción": "Almacenamiento portátil de alta velocidad con conexión USB-C",
+      "descripcion": "Almacenamiento Computación de alta velocidad con conexión USB-C",
       "categoria": "Almacenamiento",
       "tipo_producto": "cliente",
       "valor": 139,
@@ -93,7 +93,7 @@
     {
       "id": "11",
       "nombre": "Silla Gamer Ergonómica",
-      "descripción": "Silla con soporte lumbar, reclinable y reposabrazos ajustables",
+      "descripcion": "Silla con soporte lumbar, reclinable y reposabrazos ajustables",
       "categoria": "Muebles",
       "tipo_producto": "popular",
       "valor": 259,
@@ -102,7 +102,7 @@
     {
       "id": "12",
       "nombre": "Consola NextGen X",
-      "descripción": "Consola de videojuegos de última generación con gráficos 4K",
+      "descripcion": "Consola de videojuegos de última generación con gráficos 4K",
       "categoria": "Videojuegos",
       "tipo_producto": "destacado",
       "valor": 499,
@@ -111,7 +111,7 @@
     {
       "id": "13",
       "nombre": "Mouse Inalámbrico Pro",
-      "descripción": "Mouse ergonómico con sensor de alta precisión y batería de larga duración",
+      "descripcion": "Mouse ergonómico con sensor de alta precisión y batería de larga duración",
       "categoria": "Accesorios",
       "tipo_producto": "oferta",
       "valor": 89,
@@ -120,7 +120,7 @@
     {
       "id": "14",
       "nombre": "Procesador Ryzen 9",
-      "descripción": "Procesador de alto rendimiento con 12 núcleos y 24 hilos",
+      "descripcion": "Procesador de alto rendimiento con 12 núcleos y 24 hilos",
       "categoria": "Hardware",
       "tipo_producto": "cliente",
       "valor": 549,
@@ -129,11 +129,29 @@
     {
       "id": "15",
       "nombre": "Drone 4K Explorer",
-      "descripción": "Drone con cámara 4K, estabilización y autonomía de 30 minutos",
+      "descripcion": "Drone con cámara 4K, estabilización y autonomía de 30 minutos",
       "categoria": "Fotografía",
       "tipo_producto": "popular",
       "valor": 699,
       "img": "ruta/drone_explorer.jpg"
+    },
+    {
+      "id": "7fd22f55-45a9-444c-8c89-08a4811a7179",
+      "nombre": "Macbook m1",
+      "descripcion": "Macbook m1 13 256GB, color rosado",
+      "categoria": "Computación",
+      "valor": "1050",
+      "img": "image/apple-macbook.jpg",
+      "tipo_producto": "Oferta"
+    },
+    {
+      "id": "6bffffca-f6f2-4868-9f21-cf92252e4bce",
+      "nombre": "Macbook m1",
+      "descripcion": "Macbook m1 13 256GB, color rosado",
+      "categoria": "Portatil",
+      "valor": "1050",
+      "img": "image/apple-macbook.jpg",
+      "tipo_producto": "Oferta"
     }
   ],
   "client": [

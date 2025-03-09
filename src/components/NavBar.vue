@@ -10,9 +10,14 @@
         <v-icon>{{ menuOpen ? 'mdi-close' : 'mdi-menu' }}</v-icon>
       </v-btn>
     </template>
-    <v-app-bar-title>BIU</v-app-bar-title>
+    <v-btn
+      @click.prevent="goToHome"
+    >
+      BIU
+    </v-btn>
     <v-spacer />
     <v-text-field
+      v-if="showSearch"
       densify="compact"
       variant="solo"
       label="Buscar producto"
@@ -48,7 +53,7 @@
 <script>
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '@/store/auth';
-import MenuBar from "@/components/Home/MenuBar.vue";
+import MenuBar from "@/components/MenuBar.vue";
 
 export default {
   components: { MenuBar },
@@ -56,11 +61,25 @@ export default {
     const router = useRouter();
     const authStore = useAuthStore();
 
+    const showSearch = () =>{
+      console.log('pase aqui')
+      if(router.path === '/inicio' || router.path === '/'){
+        return true;
+      }
+      return false;
+    }
     const goToLogin = () =>{
       router.push('/iniciar-sesion');
     };
+
+    const goToHome = () =>{
+      router.push('/inicio');
+    };
+
     return {
       goToLogin,
+      goToHome,
+      showSearch,
       authStore
     };
   },

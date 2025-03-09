@@ -230,7 +230,7 @@
 </template>
 
 <script>
-import NavBar from '@/components/Home/NavBar.vue'
+import NavBar from '@/components/NavBar.vue'
 import Popular from '@/components/Home/Popular.vue'
 import Featured from '@/components/Home/Featured.vue'
 import Client from '@/components/Home/Client.vue'

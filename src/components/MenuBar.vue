@@ -7,7 +7,10 @@
     @update:model-value="$emit('update:menuOpen', $event)" 
   >
     <v-list>
-      <v-list-item link>
+      <v-list-item 
+        link 
+        to="/producto"
+      >
         <v-list-item-title>Administrar Productos</v-list-item-title>
       </v-list-item>
       <v-list-item link>

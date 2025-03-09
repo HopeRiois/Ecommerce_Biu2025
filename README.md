@@ -84,5 +84,10 @@ db.json. Se cambian los datos estaticos a los creados en el archivo db json.
 Se instala uuid, se crea modelos de request y response para el manejo de peticiones, se alimenta la funcionalidad de la pantalla de inicio
 con las peticiones creadas mediante json server, se finaliza la lógica de inicio de sesión, creación de usuario y recuperación de clave mediante los endpoints correspondientes.
 
+#Commmit Manage products
+Se crea la pantalla de administración de productos donde se visualiza los productos y permite hacer el crud mediante json web server.
+Adicionalmente, se configura el lenguaje del proyecto a español, se crea un modelo para productos y se agregan validaciones, modales
+para facilitar el manejo de productos.
+
 -----
 Copyright (c) 2016-present Vuetify, LLC
