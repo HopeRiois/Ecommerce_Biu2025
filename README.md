@@ -84,6 +84,7 @@ Cargue de información de inicio a través de peticiones http
 ![image](https://github.com/user-attachments/assets/9861f8e4-8aee-4699-b7ef-e0952389f15f)
 
 Barra de navegación
+
 ![image](https://github.com/user-attachments/assets/96a92808-16e8-4b2a-a19b-37940fe8a89b)
 
 #Commit Mapping endpoints to static methods
@@ -105,12 +106,13 @@ Pantalla de gestión de productos
 ![image](https://github.com/user-attachments/assets/77910523-7e7a-4e89-a1fc-720d23cd17aa)
 
 Filtrado de productos por nombre
-![image](https://github.com/user-attachments/assets/66147dd8-734a-40b9-add5-3888ef6df6cf)
+![image](https://github.com/user-attachments/assets/a4b71019-c3f0-4fff-8e42-f61f683b932a)
 
 Modal de agregar productos con validaciones
 ![image](https://github.com/user-attachments/assets/dba1f367-63a7-402e-bbab-6065b4186a15)
 
 Modal de editar producto
+
 ![image](https://github.com/user-attachments/assets/ac4b5ed5-f87b-409c-8281-2e74e83d17a6)
 
 Modal de confirmar la eliminación de un producto
