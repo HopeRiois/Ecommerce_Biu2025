@@ -2,7 +2,7 @@
   "name": "ecommerce",
   "private": true,
   "type": "module",
-  "version": "1.1.2",
+  "version": "1.2.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@mdi/font": "7.4.47",
+    "axios": "^1.8.1",
     "ecommerce": "file:",
     "roboto-fontface": "*",
+    "uuid": "^11.1.0",
     "vue": "^3.4.31",
     "vuetify": "^3.6.14"
   },

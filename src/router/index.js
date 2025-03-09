@@ -9,12 +9,14 @@
 import { createRouter, createWebHistory } from 'vue-router/auto';
 import login from '@/views/login.vue';
 import home from '@/views/home.vue';
+import product from '@/views/product.vue';
 // import { useAuthStore } from '@/store/auth';
 
 const routes = [
   { path: '/', component: home },
   { path: '/iniciar-sesion', component: login },
   { path: '/inicio', component: home },
+  { path: '/producto', component: product }
 ];
 
 const router = createRouter({

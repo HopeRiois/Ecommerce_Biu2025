@@ -1,0 +1,445 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Smartphone X100",
+      "descripcion": "Teléfono inteligente con pantalla OLED y cámara de 108 MP",
+      "categoria": "Electrónica",
+      "tipo_producto": "oferta",
+      "valor": 699,
+      "img": "ruta/smartphone_x100.jpg"
+    },
+    {
+      "id": "2",
+      "nombre": "Laptop UltraBook Pro",
+      "descripcion": "Laptop ultradelgada con procesador i7 y 16GB RAM",
+      "categoria": "Computación",
+      "tipo_producto": "cliente",
+      "valor": 1299,
+      "img": "ruta/laptop_ultrabook_pro.jpg"
+    },
+    {
+      "id": "3",
+      "nombre": "Audífonos Inalámbricos ZX",
+      "descripcion": "Audífonos con cancelación de ruido y sonido envolvente",
+      "categoria": "Accesorios",
+      "tipo_producto": "popular",
+      "valor": 199,
+      "img": "ruta/audifonos_zx.jpg"
+    },
+    {
+      "id": "4",
+      "nombre": "Smartwatch FitBand 5",
+      "descripcion": "Reloj inteligente con monitoreo de actividad y frecuencia cardíaca",
+      "categoria": "Wearables",
+      "tipo_producto": "destacado",
+      "valor": 149,
+      "img": "ruta/smartwatch_fitband5.jpg"
+    },
+    {
+      "id": "5",
+      "nombre": "Tablet Pro 12",
+      "descripcion": "Pantalla de 12 pulgadas, 256GB de almacenamiento y lápiz óptico",
+      "categoria": "Tablets",
+      "tipo_producto": "oferta",
+      "valor": 899,
+      "img": "ruta/tablet_pro12.jpg"
+    },
+    {
+      "id": "6",
+      "nombre": "Cámara Reflex D500",
+      "descripcion": "Cámara profesional con sensor Full Frame y lente 24-70mm",
+      "categoria": "Fotografía",
+      "tipo_producto": "cliente",
+      "valor": 1899,
+      "img": "ruta/camara_d500.jpg"
+    },
+    {
+      "id": "7",
+      "nombre": "Teclado Mecánico RGB",
+      "descripcion": "Teclado mecánico con iluminación RGB y switches personalizables",
+      "categoria": "Accesorios",
+      "tipo_producto": "popular",
+      "valor": 120,
+      "img": "ruta/teclado_rgb.jpg"
+    },
+    {
+      "id": "8",
+      "nombre": "Monitor 4K Ultra HD",
+      "descripcion": "Monitor de 32 pulgadas con resolución 4K y tasa de refresco de 144Hz",
+      "categoria": "Computación",
+      "tipo_producto": "destacado",
+      "valor": 799,
+      "img": "ruta/monitor_4k.jpg"
+    },
+    {
+      "id": "9",
+      "nombre": "Router Wi-Fi 6",
+      "descripcion": "Router de última generación con tecnología Wi-Fi 6 y cobertura extendida",
+      "categoria": "Redes",
+      "tipo_producto": "oferta",
+      "valor": 199,
+      "img": "ruta/router_wifi6.jpg"
+    },
+    {
+      "id": "10",
+      "nombre": "Disco Duro Externo 2TB",
+      "descripcion": "Almacenamiento Computación de alta velocidad con conexión USB-C",
+      "categoria": "Almacenamiento",
+      "tipo_producto": "cliente",
+      "valor": 139,
+      "img": "ruta/disco_2tb.jpg"
+    },
+    {
+      "id": "11",
+      "nombre": "Silla Gamer Ergonómica",
+      "descripcion": "Silla con soporte lumbar, reclinable y reposabrazos ajustables",
+      "categoria": "Muebles",
+      "tipo_producto": "popular",
+      "valor": 259,
+      "img": "ruta/silla_gamer.jpg"
+    },
+    {
+      "id": "12",
+      "nombre": "Consola NextGen X",
+      "descripcion": "Consola de videojuegos de última generación con gráficos 4K",
+      "categoria": "Videojuegos",
+      "tipo_producto": "destacado",
+      "valor": 499,
+      "img": "ruta/consola_nextgen.jpg"
+    },
+    {
+      "id": "13",
+      "nombre": "Mouse Inalámbrico Pro",
+      "descripcion": "Mouse ergonómico con sensor de alta precisión y batería de larga duración",
+      "categoria": "Accesorios",
+      "tipo_producto": "oferta",
+      "valor": 89,
+      "img": "ruta/mouse_pro.jpg"
+    },
+    {
+      "id": "14",
+      "nombre": "Procesador Ryzen 9",
+      "descripcion": "Procesador de alto rendimiento con 12 núcleos y 24 hilos",
+      "categoria": "Hardware",
+      "tipo_producto": "cliente",
+      "valor": 549,
+      "img": "ruta/procesador_ryzen9.jpg"
+    },
+    {
+      "id": "15",
+      "nombre": "Drone 4K Explorer",
+      "descripcion": "Drone con cámara 4K, estabilización y autonomía de 30 minutos",
+      "categoria": "Fotografía",
+      "tipo_producto": "popular",
+      "valor": 699,
+      "img": "ruta/drone_explorer.jpg"
+    },
+    {
+      "id": "7fd22f55-45a9-444c-8c89-08a4811a7179",
+      "nombre": "Macbook m1",
+      "descripcion": "Macbook m1 13 256GB, color rosado",
+      "categoria": "Computación",
+      "valor": "1050",
+      "img": "image/apple-macbook.jpg",
+      "tipo_producto": "Oferta"
+    },
+    {
+      "id": "6bffffca-f6f2-4868-9f21-cf92252e4bce",
+      "nombre": "Macbook m1",
+      "descripcion": "Macbook m1 13 256GB, color rosado",
+      "categoria": "Portatil",
+      "valor": "1050",
+      "img": "image/apple-macbook.jpg",
+      "tipo_producto": "Oferta"
+    }
+  ],
+  "client": [
+    {
+      "img": "image/9.png",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "9cbb"
+    },
+    {
+      "img": "image/10.png",
+      "title": "Appel Mac Book Pro",
+      "price2": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "7b73"
+    },
+    {
+      "img": "image/11.jpg",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "9ca4"
+    }
+  ],
+  "featured": [
+    {
+      "img": "image/5.png",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "5795"
+    },
+    {
+      "img": "image/6.png",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "126a"
+    },
+    {
+      "img": "image/7.png",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "0615"
+    },
+    {
+      "img": "image/8.png",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "4ea8"
+    }
+  ],
+  "popular": [
+    {
+      "img": "image/1.png",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "6ef3"
+    },
+    {
+      "img": "image/2.png",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "95d2"
+    },
+    {
+      "img": "image/3.png",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "75c8"
+    },
+    {
+      "img": "image/4.png",
+      "title": "Appel Mac Book Pro",
+      "price": "$ 93.358.01",
+      "bio": " Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+      "id": "1e56"
+    }
+  ],
+  "item": [
+    {
+      "src": "7.jpg",
+      "title": "Articulo 1",
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+      "id": "7379"
+    },
+    {
+      "src": "1.jpg",
+      "title": "Articulo 2",
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+      "id": "2227"
+    },
+    {
+      "src": "2.jpg",
+      "title": "Articulo 3",
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+      "id": "fec8"
+    },
+    {
+      "src": "3.jpg",
+      "title": "Articulo 4",
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+      "id": "a3a8"
+    },
+    {
+      "src": "4.jpg",
+      "title": "Articulo 5",
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+      "id": "787c"
+    },
+    {
+      "src": "5.jpg",
+      "title": "Articulo 6",
+      "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès ",
+      "id": "8ae7"
+    }
+  ],
+  "user": [
+    {
+      "id": "1",
+      "firstName": "admin",
+      "lastName": "nistrator",
+      "userName": "admin",
+      "email": "admin@admin.com",
+      "phone": "123-456-7890",
+      "password": "YWRtaW4=",
+      "bornDate": "1990-05-15",
+      "address": "Calle 123, Ciudad A",
+      "rol": {
+        "id": 1,
+        "name": "administrator"
+      }
+    },
+    {
+      "id": "2",
+      "firstName": "María",
+      "lastName": "Fernández",
+      "userName": "mariaf",
+      "email": "mariaf@example.com",
+      "phone": "987-654-3210",
+      "password": "bWFyaWFm",
+      "bornDate": "1985-09-22",
+      "address": "Av. Central 45, Ciudad B",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "3",
+      "firstName": "Javier",
+      "lastName": "González",
+      "userName": "javierg",
+      "email": "javierg@example.com",
+      "phone": "555-123-4567",
+      "password": "cGFzc0NsaWVudHM=",
+      "bornDate": "1992-07-30",
+      "address": "Calle Secundaria 78, Ciudad C",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "4",
+      "firstName": "Laura",
+      "lastName": "Hernández",
+      "userName": "laurah",
+      "email": "laurah@example.com",
+      "phone": "321-987-6543",
+      "password": "cGFzc0NsaWVudHM=",
+      "bornDate": "1996-12-10",
+      "address": "Carrera 12 #34-56, Ciudad D",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "5",
+      "firstName": "Pedro",
+      "lastName": "López",
+      "userName": "pedrol",
+      "email": "pedrol@example.com",
+      "phone": "777-888-9999",
+      "password": "cGFzc0NsaWVudHM=",
+      "bornDate": "1988-03-18",
+      "address": "Calle Nueva 101, Ciudad E",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "6",
+      "firstName": "Ana",
+      "lastName": "Martínez",
+      "userName": "anam",
+      "email": "anam@example.com",
+      "phone": "666-777-8888",
+      "password": "cGFzc0NsaWVudHM=",
+      "bornDate": "1994-06-25",
+      "address": "Av. del Sol 12, Ciudad F",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "7",
+      "firstName": "Luis",
+      "lastName": "Castro",
+      "userName": "luisc",
+      "email": "luisc@example.com",
+      "phone": "444-555-6666",
+      "password": "cGFzc0NsaWVudHM=",
+      "bornDate": "1991-02-14",
+      "address": "Diagonal 55 #23-90, Ciudad G",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "8",
+      "firstName": "Carmen",
+      "lastName": "Sánchez",
+      "userName": "carmens",
+      "email": "carmens@example.com",
+      "phone": "333-222-1111",
+      "password": "cGFzc0NsaWVudHM=",
+      "bornDate": "1987-11-05",
+      "address": "Paseo de los Lagos 78, Ciudad H",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "9",
+      "firstName": "Ricardo",
+      "lastName": "Díaz",
+      "userName": "ricardod",
+      "email": "ricardod@example.com",
+      "phone": "999-888-7777",
+      "password": "cGFzc0NsaWVudHM=",
+      "bornDate": "1993-08-09",
+      "address": "Calle Estrella 5, Ciudad I",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "10",
+      "firstName": "Sofía",
+      "lastName": "Morales",
+      "userName": "sofiam",
+      "email": "sofiam@example.com",
+      "phone": "222-333-4444",
+      "password": "cGFzc0NsaWVudHM=",
+      "bornDate": "1997-04-28",
+      "address": "Avenida Libertad 100, Ciudad J",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "578c2b80-a470-4ff0-a070-fadfced6dd30",
+      "firstName": "Alvaro Luis",
+      "lastName": "Uribe",
+      "userName": "auribe",
+      "email": "auribe@correo.co",
+      "phone": "301234567",
+      "password": "YWRtaW4=",
+      "bornDate": "2000-10-10",
+      "address": "Carrera 1#2-3",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    }
+  ]
+}

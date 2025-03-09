@@ -45,25 +45,83 @@ Se instala el paquete date-fns, se termina de configurar pinia para el manejo de
 formularios, se mejora aspectos visuales de la pantalla de login. 
 
 Pantalla inicial de login con sus respectivas validaciones y opciones.
+
 ![image](https://github.com/user-attachments/assets/24394bb3-4a9f-4704-83b1-4cc66e5fe10c)
 
 Pantalla de registro de usuario con las validaciones del formulario, mensajes de notificaciones.
+
 ![image](https://github.com/user-attachments/assets/64f9d7bc-0f11-4e33-94d4-634e792480fb)
 
 Pantalla de recuperación de clave mediante código OTP paso 1 diligenciamento del correo.
+
 ![image](https://github.com/user-attachments/assets/533fcb5f-a9b6-47f6-9aed-9354967faea5)
 
 Pantalla de recuperación de clave mediante código OTP paso 2 verificación otp con un sistema de 3 intentos disponibles.
+
 ![image](https://github.com/user-attachments/assets/cf48dd56-b541-4e29-938c-12b0e7784769)
 
 Pantalla de recuperación de clave mediante código OTP paso 3 restablecer contraseña.
+
 ![image](https://github.com/user-attachments/assets/26e03e48-ffcb-4a52-af5f-553edcf2b550)
 
 Pantalla inicial del ecommerce luego de iniciar sesión donde se muestra la información del usuario logeado.
+
 ![image](https://github.com/user-attachments/assets/460facae-e19c-404f-9382-6794d1cb5cc7)
 
 #Merge Feature/sprint2 to main
 Se hace merge de la segunda entrega a la rama principal del proyecto.
+
+-----
+
+----- feature sprint3
+
+#Commit Manage routes and environments
+Se installa Axios para realizar las peticiones http que van a alimentar el frontend. Se crea archivos de ambientes de dev y producción, 
+allí se podrán especificar las rutas de las apis que van a ser consumidas, por el momento se manejará con json web server con el archivo
+db.json. Se cambian los datos estaticos a los creados en el archivo db json.
+
+Cargue de información de inicio a través de peticiones http
+![image](https://github.com/user-attachments/assets/9861f8e4-8aee-4699-b7ef-e0952389f15f)
+
+Barra de navegación
+
+![image](https://github.com/user-attachments/assets/96a92808-16e8-4b2a-a19b-37940fe8a89b)
+
+#Commit Mapping endpoints to static methods
+Se instala uuid, se crea modelos de request y response para el manejo de peticiones, se alimenta la funcionalidad de la pantalla de inicio
+con las peticiones creadas mediante json server, se finaliza la lógica de inicio de sesión, creación de usuario y recuperación de clave mediante los endpoints correspondientes.
+
+Peticiones de obtener usuarios, crear usuario y actualizar clave de usuario
+![image](https://github.com/user-attachments/assets/2cad51a4-1f54-4f1c-8177-61bf6b1b6f5f)
+
+Cuerpo de las peticiones
+![image](https://github.com/user-attachments/assets/36aa2a05-8150-4b67-bd3a-47026d0daba5)
+
+#Commmit Manage products
+Se crea la pantalla de administración de productos donde se visualiza los productos y permite hacer el crud mediante json web server.
+Adicionalmente, se configura el lenguaje del proyecto a español, se crea un modelo para productos y se agregan validaciones, modales
+para facilitar el manejo de productos.
+
+Pantalla de gestión de productos
+![image](https://github.com/user-attachments/assets/77910523-7e7a-4e89-a1fc-720d23cd17aa)
+
+Filtrado de productos por nombre
+![image](https://github.com/user-attachments/assets/a4b71019-c3f0-4fff-8e42-f61f683b932a)
+
+Modal de agregar productos con validaciones
+![image](https://github.com/user-attachments/assets/dba1f367-63a7-402e-bbab-6065b4186a15)
+
+Modal de editar producto
+
+![image](https://github.com/user-attachments/assets/ac4b5ed5-f87b-409c-8281-2e74e83d17a6)
+
+Modal de confirmar la eliminación de un producto
+![image](https://github.com/user-attachments/assets/d78f7ed2-81b1-47b8-86ba-1bb28e011e68)
+
+Peticiones CRUD con json web server
+![image](https://github.com/user-attachments/assets/e0621687-3d22-4187-9cd0-f73889443d53)
+
+#Merge feature/sprint3 to main
 
 -----
 Copyright (c) 2016-present Vuetify, LLC
