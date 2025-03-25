@@ -93,7 +93,7 @@
     {
       "id": "11",
       "nombre": "Silla Gamer Ergonómica",
-      "descripcion": "Silla con soporte lumbar, reclinable y reposabrazos ajustables",
+      "descripcion": "Silla con soporte lumbar, reclinable y reposabrazos ajustables.",
       "categoria": "Muebles",
       "tipo_producto": "popular",
       "valor": 259,
@@ -145,12 +145,12 @@
       "tipo_producto": "Oferta"
     },
     {
-      "id": "6bffffca-f6f2-4868-9f21-cf92252e4bce",
-      "nombre": "Macbook m1",
-      "descripcion": "Macbook m1 13 256GB, color rosado",
-      "categoria": "Portatil",
-      "valor": "1050",
-      "img": "image/apple-macbook.jpg",
+      "id": "55e45d85-4aac-4e85-b840-85abb73f5905",
+      "nombre": "Mouse Gamer Logitech G502",
+      "descripcion": "Mouse gamer RGB modelo G502 HERO programable 256000 dpi",
+      "categoria": "Accesorios",
+      "valor": "80",
+      "img": "image/g502.jpg",
       "tipo_producto": "Oferta"
     }
   ],
@@ -313,7 +313,7 @@
       "userName": "javierg",
       "email": "javierg@example.com",
       "phone": "555-123-4567",
-      "password": "cGFzc0NsaWVudHM=",
+      "password": "amdvbnphbGVz",
       "bornDate": "1992-07-30",
       "address": "Calle Secundaria 78, Ciudad C",
       "rol": {
@@ -436,6 +436,21 @@
       "password": "YWRtaW4=",
       "bornDate": "2000-10-10",
       "address": "Carrera 1#2-3",
+      "rol": {
+        "id": 2,
+        "name": "client"
+      }
+    },
+    {
+      "id": "0ccb1dac-37c1-4a98-b7f2-8568dbd5115f",
+      "firstName": "Luis",
+      "lastName": "Ramirez",
+      "userName": "luisr",
+      "email": "luisr@correo.co",
+      "phone": "3009876543",
+      "password": "bHVpc3I=",
+      "bornDate": "1988-02-01",
+      "address": "Calle 2#3-1",
       "rol": {
         "id": 2,
         "name": "client"

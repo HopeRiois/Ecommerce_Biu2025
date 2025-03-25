@@ -17,12 +17,12 @@
         />
         <v-card-item class="mt-n4">
           <v-card-title class="text-center">
-            {{ popular.title }}
+            {{ popular.name }}
           </v-card-title>
         </v-card-item>
         <v-card-text>
           <div class="text-center">
-            {{ popular.bio }}
+            {{ popular.description }}
           </div>
           <v-row
             align="center"
@@ -35,12 +35,11 @@
               half-increments
               readonly
               size="small"
-            >
-              <v-spacer />
-              <div class="text-gray ms-4">
-                {{ popular.price }}
-              </div>
-            </v-rating>
+            />
+            <v-spacer />
+            <div class="text-gray ms-4">
+              $ {{ popular.value }}
+            </div>
           </v-row>
         </v-card-text>
       </v-card>
@@ -50,7 +49,7 @@
 
 <script>
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import api from '@/router/api';
 
 export default {
   
@@ -59,8 +58,8 @@ export default {
 
     const obtenerPopular = async () => {
       try {
-        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_POPULAR;
-        const respuesta = await axios.get(url);
+        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + '/get-by-type?type=popular';
+        const respuesta = await api.get(url);
         populars.value = respuesta.data;
       } catch (error) {
         console.error('Error al obtener data:', error);

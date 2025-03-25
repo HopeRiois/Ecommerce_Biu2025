@@ -39,12 +39,12 @@
         />
         <v-card-item class="mt-n4">
           <v-card-title class="text-center">
-            {{ client.title }}
+            {{ client.name }}
           </v-card-title>
         </v-card-item>
         <v-card-text>
           <div class="text-center">
-            {{ client.bio }}
+            {{ client.description }}
           </div>
           <v-row
             align="center"
@@ -60,7 +60,7 @@
             />
             <v-spacer />
             <div class="text-grey ms-4">
-              {{ client.price }}
+              $ {{ client.value }}
             </div>
           </v-row>
         </v-card-text>
@@ -71,7 +71,7 @@
 
 <script>
 import { ref, onMounted, onUnmounted, computed } from 'vue';
-import axios from 'axios';
+import api from '@/router/api';
 
 export default {
     setup() {
@@ -83,8 +83,8 @@ export default {
 
     const obtenerClients = async () => {
       try {
-        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_CLIENT;
-        const respuesta = await axios.get(url);
+        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + '/get-by-type?type=client';
+        const respuesta = await api.get(url);
         clients.value = respuesta.data;
       } catch (error) {
         console.error('Error al obtener data:', error);

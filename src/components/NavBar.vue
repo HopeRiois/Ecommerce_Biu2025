@@ -34,6 +34,12 @@
       Descargar app
     </v-btn>
     <v-btn
+      icon
+      @click="goToCart"
+    >
+      <v-icon>mdi-cart</v-icon>
+    </v-btn>
+    <v-btn
       v-if="!authStore.isAuthenticated"
       @click.prevent="goToLogin"
     >
@@ -43,7 +49,7 @@
       v-else
       @click.prevent="goToLogin"
     >
-      {{ authStore.user?.userName || 'Invitado' }}
+      {{ authStore.logged?.userName || 'Invitado' }}
     </v-btn>
   </v-app-bar>
 
@@ -62,7 +68,6 @@ export default {
     const authStore = useAuthStore();
 
     const showSearch = () =>{
-      console.log('pase aqui')
       if(router.path === '/inicio' || router.path === '/'){
         return true;
       }
@@ -72,13 +77,23 @@ export default {
       router.push('/iniciar-sesion');
     };
 
+    const goToCart = () =>{
+      router.push('/resumen')
+    }
+
     const goToHome = () =>{
-      router.push('/inicio');
+      if(authStore.logged){
+        router.push('/comprar');
+
+      }else{
+        router.push('/inicio');
+      }
     };
 
     return {
       goToLogin,
       goToHome,
+      goToCart,
       showSearch,
       authStore
     };

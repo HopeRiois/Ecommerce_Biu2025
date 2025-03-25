@@ -124,4 +124,14 @@ Peticiones CRUD con json web server
 #Merge feature/sprint3 to main
 
 -----
+
+----- feature sprint5
+
+#Commit Connections backend, fix pages, buy and resume page added
+Se modifica los ambientes para almacenar las rutas de los endpoints, se crea modelos de requests y responses para las peticiones del
+backend, se corrigen los nombres y las peticiones para dejar de utilizar json web server y comunicarse con el web api. Se agregan
+las nuevas rutas de las páginas, un interceptor que valida la expiración del token que redirige al login, se toma en cuenta los roles 
+de los usuarios como permisos de la plataforma. Se agregan el sistema de ordenes de compra y venta que funciona sin pasarelas de pago.
+
+
 Copyright (c) 2016-present Vuetify, LLC

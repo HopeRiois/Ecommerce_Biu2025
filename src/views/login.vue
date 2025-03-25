@@ -373,11 +373,13 @@ import { useAuthStore } from '../store/auth';
 import { useRouter } from 'vue-router';
 import { parseISO, differenceInYears } from 'date-fns'
 import { User } from '@/models/Response/User';
-import axios from 'axios';
+import api from '@/router/api';
+import { LoginRequest } from '@/models/Request/LoginRequest';
+import { LoginResponse } from '@/models/Response/LoginResponse';
 
 export default {
     setup(){
-        const users = [];
+        // const users = [];
 
         const authStore = useAuthStore();
         const router = useRouter();
@@ -397,37 +399,73 @@ export default {
         const changePasswordRef = ref(null);
         const registerFormRef = ref(null);
 
-        const obtenerUsers = async () => {
+        // const obtenerUsers = async () => {
+        //   try {
+        //     const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_USER;
+        //     const respuesta = await api.get(url);
+        //     users.value = respuesta.data.map(user => new User(user));;
+        //   } catch (error) {
+        //     console.error('Error al obtener data:', error);
+        //   }
+        // };
+
+        const validateLogin = async (identifier, password) => {
           try {
-            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_USER;
-            const respuesta = await axios.get(url);
-            users.value = respuesta.data.map(user => new User(user));;
+            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_AUTH + "/token";
+            const request = new LoginRequest();
+            request.userName = identifier;
+            request.password = password;
+            const respuesta = await api.post(url, request);
+            return new LoginResponse(respuesta.data);
           } catch (error) {
             console.error('Error al obtener data:', error);
+          }
+        };
+
+        const checkEmail = async (email) => {
+          try {
+            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_USER + "/check-email?email=" + email;
+            const respuesta = await api.get(url);
+            return new Boolean(respuesta.data);
+          } catch (error) {
+            console.error('Error al obtener data:', error);
+            window.$notify(`Ocurrió un error al buscar el usuario.`, false);
+          }
+        };
+
+        const resetPasswordService = async (email, password) => {
+          try {
+            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_USER + "/reset-password?email=" + email + "&password=" + password;
+            const respuesta = await api.get(url);
+            return new User(respuesta.data);
+          } catch (error) {
+            console.error('Error al obtener data:', error);
+            window.$notify(`Ocurrió un error al buscar el usuario.`, false);
           }
         };
 
         const createUser = async (user) => {
           try {
-            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_USER;
-            const respuesta = await axios.post(url, user);
+            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_USER + "/register-user";
+            const respuesta = await api.post(url, user);
             user.value = new User(respuesta.data);
             return user.value;
           } catch (error) {
             console.error('Error al obtener data:', error);
+            window.$notify(`No fue posible completar el registro, nombre de usuario o correo ocupado.`, false);
           }
         };
 
-        const updateUser = async (user, id) => {
-          try {
-            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_USER + `/${id}`;
-            const respuesta = await axios.put(url, user);
-            user.value = new User(respuesta.data);
-            return user.value;
-          } catch (error) {
-            console.error('Error al obtener data:', error);
-          }
-        };
+        // const updateUser = async (user, id) => {
+        //   try {
+        //     const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_USER + `/${id}`;
+        //     const respuesta = await api.put(url, user);
+        //     user.value = new User(respuesta.data);
+        //     return user.value;
+        //   } catch (error) {
+        //     console.error('Error al obtener data:', error);
+        //   }
+        // };
 
         const rules = {
           required: value => !!value || 'Este campo es obligatorio',
@@ -501,35 +539,36 @@ export default {
             isRegistering.value = !isRegistering.value;
         };
 
-        const checkLogin = (identifier, password) =>  users.value.find(
-          (usuario) =>
-            (usuario.userName === identifier || usuario.email === identifier) &&
-            atob(usuario.password) === password
-        );
+        // const checkLogin = (identifier, password) =>  users.value.find(
+        //   (usuario) =>
+        //     (usuario.userName === identifier || usuario.email === identifier) &&
+        //     atob(usuario.password) === password
+        // );
 
-        const findUserEmail = (email) =>  users.value.find(
-          (usuario) =>
-            usuario.email === email
-        );
+        // const findUserEmail = (email) =>  users.value.find(
+        //   (usuario) =>
+        //     usuario.email === email
+        // );
 
-        const checkEmail = (email) =>  users.value.some(
-          (usuario) =>
-            usuario.email === email
-        );
+        // const checkEmail = (email) =>  users.value.some(
+        //   (usuario) =>
+        //     usuario.email === email
+        // );
 
-        const existsEmailOrUsername = (email, userName) =>  users.value.some(
-          (usuario) =>
-            usuario.email === email || usuario.userName === userName
-        );
+        // const existsEmailOrUsername = (email, userName) =>  users.value.some(
+        //   (usuario) =>
+        //     usuario.email === email || usuario.userName === userName
+        // );
 
         const handleLogin = async () =>{
           const { valid } = await loginFormRef.value.validate();
           if (valid) {
-            const usuarioEncontrado = checkLogin(loginForm.value.identifier, loginForm.value.password);
-            if(usuarioEncontrado){
-              authStore.login(usuarioEncontrado);
-              window.$notify(`Bienvenido: ${authStore.user.userName}`, true);
-              router.push('/inicio');        
+            // const usuarioEncontrado = checkLogin(loginForm.value.identifier, loginForm.value.password);
+            const loginResponse = await validateLogin(loginForm.value.identifier, loginForm.value.password);
+            if(loginResponse){
+              authStore.login(loginResponse);
+              window.$notify(`Bienvenido: ${authStore.logged.userName}`, true);
+              router.push('/comprar');        
             }else{
               window.$notify('Usuario o contraseña incorrecto.', false);
             }    
@@ -543,8 +582,8 @@ export default {
           const { valid } = await registerFormRef.value.validate();
           if (valid) {
 
-            const alreadyExists = existsEmailOrUsername(registerForm.value.email, registerForm.value.userName);
-            if(!alreadyExists){
+            // const alreadyExists = existsEmailOrUsername(registerForm.value.email, registerForm.value.userName);
+            // if(!alreadyExists){
               const user = new User();
               user.firstName = registerForm.value.firstName;
               user.lastName = registerForm.value.lastName;
@@ -552,16 +591,16 @@ export default {
               user.email = registerForm.value.email;
               user.phone = registerForm.value.phone;
               user.address = registerForm.value.address;
-              user.password = btoa(registerForm.value.password);
+              user.password = registerForm.value.password;
               user.bornDate = registerForm.value.bornDate;
-              await createUser(user);
-
-              window.$notify("Registro exitoso. Por favor vuelva a iniciar sesión.", true);
-            }else{
+              const res = await createUser(user);
+              if(res){
+                window.$notify("Registro exitoso. Por favor vuelva a iniciar sesión.", true);
+                isRegistering.value = false;
+              }else{
               window.$notify('El correo o nombre de usuario ya se encuentran ocupados.', false);
-            }
-            isRegistering.value = false;
-          } 
+              }
+          }
           else {
             window.$notify('Por favor diligencia correctamente los campos', false);
           }
@@ -570,7 +609,7 @@ export default {
         const sendOtp = async () => {
           const { valid } = await sendOtpFormRef.value.validate();
           if (valid) {
-            const existEmail = checkEmail(forgotPassword.value.email);
+            const existEmail = await checkEmail(forgotPassword.value.email);
             if(existEmail){
               window.$notify(`Código OTP enviado al correo: ${forgotPassword.value.email}`, true);
               forgotPassword.value.step = 2;
@@ -607,10 +646,10 @@ export default {
               window.$notify("Las contraseñas no coinciden.", false);
                 return;
             }
-            const user = findUserEmail(forgotPassword.value.email);
-            user.password = btoa(forgotPassword.value.newPassword);
-            await updateUser(user, user.id);
-            window.$notify("Contraseña restablecida con éxito. Inicia sesión con tu nueva contraseña.", true);
+            const user = await resetPasswordService(forgotPassword.value.email, forgotPassword.value.newPassword);
+            // user.password = btoa(forgotPassword.value.newPassword);
+            // await updateUser(user, user.id);
+            window.$notify("Contraseña de: " + user.userName + " restablecida con éxito. Inicia sesión con tu nueva contraseña.", true);
             forgotPassword.value.active = false;
             forgotPassword.value.step = 1;
             forgotPassword.value.attempts = 3;
@@ -620,7 +659,7 @@ export default {
         };
 
         onMounted(() => {
-          obtenerUsers();
+          // obtenerUsers();
           nextTick(() => {
             otpFields.value[0].$el.focus();
           });
@@ -642,7 +681,7 @@ export default {
             registerForm,
             forgotPassword,
             forgotPasswordStepTittle,
-            users,
+            // users,
             handleLogin,
             handleRegister,
             toggleForm,
