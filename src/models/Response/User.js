@@ -1,9 +1,8 @@
 import { Rol } from './Rol';
-import { v4 as uuidv4 } from 'uuid';
 
 export class User{
     
-    constructor({id = uuidv4(), firstName= "", lastName= "", userName= "", email= "", phone= "", password= "", bornDate= "", address= "", rol = new Rol()} = {}){
+    constructor({id = 0, firstName= "", lastName= "", userName= "", email= "", phone= "", password= "", bornDate= "", address= "", rol = new Rol()} = {}){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

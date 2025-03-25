@@ -10,13 +10,17 @@ import { createRouter, createWebHistory } from 'vue-router/auto';
 import login from '@/views/login.vue';
 import home from '@/views/home.vue';
 import product from '@/views/product.vue';
-// import { useAuthStore } from '@/store/auth';
+import buy from '@/views/buy.vue'
+import resume from '@/views/resume.vue'
+import { useAuthStore } from '@/store/auth';
 
 const routes = [
   { path: '/', component: home },
   { path: '/iniciar-sesion', component: login },
   { path: '/inicio', component: home },
-  { path: '/producto', component: product }
+  { path: '/producto', component: product },
+  { path: '/comprar', component: buy },
+  { path: '/resumen', component: resume }
 ];
 
 const router = createRouter({
@@ -24,11 +28,23 @@ const router = createRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  const store = useAuthStore();
+  const storedData = localStorage.getItem("logged");
+  store.loadUser();
+
+  if (storedData && !store.userData) {
+    store.userData = JSON.parse(storedData);
+  }
+
+  next();
+});
+
 // router.beforeEach((to, from, next) => {
 //   const authStore = useAuthStore();
 //   authStore.loadUser();
 
-//   if (to.path !== '/iniciar-sesion' && !authStore.user) {
+//   if ((to.path !== '/iniciar-sesion' || to.path !== '/inicio') && !authStore.user) {
 //     next('/iniciar-sesion');
 //   } else {
 //     if (routes.includes(to.path)) {

@@ -18,7 +18,7 @@
               <v-carousel-item
                 v-for="(item, i) in items"
                 :key="i"
-                :src="item.src"
+                :src="item.img"
                 cover
               >
                 <v-row>
@@ -28,13 +28,13 @@
                   >
                     <div class="d-flex fill-height justify-center align-center">
                       <h2 class="text-white top">
-                        {{ item.title }}
+                        {{ item.name }}
                       </h2>
                       <br>
                     </div>
                     <div class="d-flex fill-height justify-center align-center">
                       <p class="text text-wite">
-                        {{ item.text }}
+                        {{ item.description }}
                       </p>
                     </div>
                     <div class="d-flex fill-height justify-center align-center">
@@ -236,7 +236,7 @@ import Featured from '@/components/Home/Featured.vue'
 import Client from '@/components/Home/Client.vue'
 import Foot from '@/components/Home/Footer.vue'
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import api from '@/router/api';
 
 export default {
   
@@ -246,8 +246,8 @@ export default {
 
     const obtenerItems = async () => {
       try {
-        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_ITEM;
-        const respuesta = await axios.get(url);
+        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + '/get-by-type?type=item';
+        const respuesta = await api.get(url);
         items.value = respuesta.data;
       } catch (error) {
         console.error('Error al obtener data:', error);

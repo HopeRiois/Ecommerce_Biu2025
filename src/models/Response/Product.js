@@ -1,12 +1,13 @@
-import { v4 as uuidv4 } from 'uuid';
+import { Category } from "./Category";
 
 export class Product {
-    constructor({ id= uuidv4(), nombre = "", descripcion="", categoria="", valor=0, img="" } = {}) {
+    constructor({ id= 0, name = "", description="", productType="", value=0, img="", category = new Category() } = {}) {
         this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.categoria = categoria;
-        this.valor = valor;
+        this.name = name;
+        this.description = description;
+        this.productType = productType;
+        this.value = value;
         this.img = img;
+        this.category = category ? new Category(category) : null;
     }
 }

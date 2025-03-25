@@ -17,12 +17,12 @@
         />
         <v-card-item class="mt-n4">
           <v-card-title class="text-center">
-            {{ featured.title }}
+            {{ feature.name }}
           </v-card-title>
         </v-card-item>
         <v-card-text>
           <div class="text-center">
-            {{ feature.bio }}
+            {{ feature.description }}
           </div>
           <v-row
             align="center"
@@ -38,7 +38,7 @@
             />
             <v-spacer />
             <div class="text-grey ms-4">
-              {{ featured.price }}
+              $ {{ feature.value }}
             </div>
           </v-row>
         </v-card-text>
@@ -49,7 +49,7 @@
 
 <script>
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import api from '@/router/api';
 
 export default {
   
@@ -58,8 +58,8 @@ export default {
 
     const obtenerFeatured = async () => {
       try {
-        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_FEATURED;
-        const respuesta = await axios.get(url);
+        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + '/get-by-type?type=featured';
+        const respuesta = await api.get(url);
         featured.value = respuesta.data;
       } catch (error) {
         console.error('Error al obtener data:', error);

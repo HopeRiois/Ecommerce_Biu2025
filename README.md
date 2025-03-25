@@ -124,4 +124,37 @@ Peticiones CRUD con json web server
 #Merge feature/sprint3 to main
 
 -----
+
+----- feature sprint5
+
+#Commit Connections backend, fix pages, buy and resume page added
+Se modifica los ambientes para almacenar las rutas de los endpoints, se crea modelos de requests y responses para las peticiones del
+backend, se corrigen los nombres y las peticiones para dejar de utilizar json web server y comunicarse con el web api. Se agregan
+las nuevas rutas de las páginas, un interceptor que valida la expiración del token que redirige al login, se toma en cuenta los roles 
+de los usuarios como permisos de la plataforma. Se agregan el sistema de ordenes de compra y venta que funciona sin pasarelas de pago.
+
+Crud de productos el campo categoria ahora es un desplegable obtenido desde la db
+![image](https://github.com/user-attachments/assets/457b3f15-7c7e-44bb-81cc-03b2f7ec9609)
+
+Página para realizar las ordenes y/o compra de productos, carrito agregado en la barra de navegacion
+![image](https://github.com/user-attachments/assets/398a1667-f05e-4978-b857-b67aefaaac3a)
+
+Interceptor que redirige al inicio si el usuario no esta logeado o no tiene permisos, en este caso administrar productos
+![image](https://github.com/user-attachments/assets/0d985d76-b5c3-41e8-913c-dc94cc8a3674)
+
+Agregar productos al carrito, si el producto ya existe entonces se suma a la cantidad en el carro
+![image](https://github.com/user-attachments/assets/c0be4dac-539a-4ac2-88bb-96c4f74bbf1c)
+
+Carrito de compra para el usuario logeado con sus posibles acciones
+![image](https://github.com/user-attachments/assets/79c6e5c2-47c2-4f99-8373-d48c8a3c9cfd)
+
+Se reduce en dos la cantidad del primer producto, se agrega uno al tercero, se borra el cuarto y se realiza el pago
+![image](https://github.com/user-attachments/assets/c54158d7-cfb7-4024-9726-29b79cacff68)
+
+Resumen de las peticiones realizadas por el front con foco en la de realizar la compra
+![image](https://github.com/user-attachments/assets/cf303a4c-3841-4aa7-a50c-3901c80f9680)
+
+#Merge feature/sprint5 to main
+
+-----
 Copyright (c) 2016-present Vuetify, LLC

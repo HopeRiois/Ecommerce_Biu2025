@@ -43,11 +43,11 @@
             <template #item="{ item }">
               <tr>
                 <td>{{ item.id }}</td>
-                <td>{{ item.nombre }}</td>
-                <td>{{ item.descripcion }}</td>
-                <td>{{ item.categoria }}</td>
-                <td>{{ item.tipo_producto }}</td>
-                <td>{{ item.valor }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.category.name }}</td>
+                <td>{{ item.productType }}</td>
+                <td>{{ item.value }}</td>
                 <td>{{ item.img }}</td>
                 <td>
                   <v-container class="d-flex align-center gap-2">
@@ -86,7 +86,7 @@
               </v-card-title>
               <v-card-text>
                 <v-text-field
-                  v-model="product.nombre"
+                  v-model="product.name"
                   label="Nombre"
                   outlined
                   persistent-placeholder
@@ -94,23 +94,36 @@
                   :rules="[rules.required]"
                 />
                 <v-text-field
-                  v-model="product.descripcion"
+                  v-model="product.description"
                   label="Descripción"
                   outlined
                   persistent-placeholder
                   class="mb-2"
                   :rules="[rules.required]"
                 />
-                <v-text-field
-                  v-model="product.categoria"
+                <!--<v-text-field
+                  v-model="product.category.name"
                   label="Categoría"
                   outlined
                   persistent-placeholder
                   class="mb-2"
                   :rules="[rules.required]"
+                />-->
+                <v-select
+                  v-model="categorySelected"
+                  :items="categories"
+                  item-title="name"
+                  item-value="id"
+                  label="Categoria"
+                  return-object
+                  outlined
+                  persistent-placeholder
+                  class="mb-2"
+                  :rules="[rules.required]"
+                  @update:model-value="onCategorySelect"
                 />
                 <v-text-field
-                  v-model="product.tipo_producto"
+                  v-model="product.productType"
                   label="Tipo de Producto"
                   outlined
                   persistent-placeholder
@@ -118,7 +131,7 @@
                   :rules="[rules.required]"
                 />
                 <v-text-field
-                  v-model="product.valor"
+                  v-model="product.value"
                   label="Valor"
                   type="number"
                   outlined
@@ -159,7 +172,7 @@
               ¿Está seguro de eliminar el producto?
             </v-card-title>
             <v-card-text>
-              Una vez eliminado el producto "{{ productToDelete?.nombre }}" no podrá recuperarlo. 
+              Una vez eliminado el producto "{{ productToDelete?.name }}" no podrá recuperarlo. 
             </v-card-text>
             <v-card-actions>
               <v-spacer />
@@ -188,7 +201,7 @@
 import NavBar from '@/components/NavBar.vue';
 import { ref, computed, onMounted } from 'vue';
 import { Product } from '@/models/Response/Product';
-import axios from 'axios';
+import api from '@/router/api';
 
 export default {
     setup() {
@@ -198,6 +211,8 @@ export default {
         const productToDelete = ref({});
         const products = ref([]);
         const saveFormRef = ref(null);
+        const categories = ref([]);
+        const categorySelected = ref(null);
 
         const rules = {
           required: value => !!value || 'Este campo es obligatorio',
@@ -207,29 +222,39 @@ export default {
         const obtenerProducts = async () => {
             try {
                 const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT;
-                const respuesta = await axios.get(url);
+                const respuesta = await api.get(url);
                 products.value = respuesta.data;
             } catch (error) {
                 console.error('Error al obtener data:', error);
             }
         };
 
+        const getCategories = async () => {
+          try {
+                const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_CATEGORY;
+                const respuesta = await api.get(url);
+                categories.value = respuesta.data;
+            } catch (error) {
+                console.error('Error al obtener data:', error);
+            }
+        }
+
         const createProduct = async (product) => {
           try {
-            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT;
-            const respuesta = await axios.post(url, product);
-            product.value = new Product(respuesta.data);
-            return product.value;
+            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + "/create-product";
+            const respuesta = await api.post(url, product);
+            return new Product(respuesta.data);
+            // return product.value;
           } catch (error) {
             console.error('Error al obtener data:', error);
           }
         };
 
-        const updateProduct = async (product, id) => {
+        const updateProduct = async (product) => {
           try {
-            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + `/${id}`;
-            const respuesta = await axios.put(url, product);
-            product.value = new Product(respuesta.data);
+            const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + "/update-product";
+            await api.put(url, product);
+            // product.value = new Product(respuesta.data);
             return product.value;
           } catch (error) {
             console.error('Error al obtener data:', error);
@@ -239,7 +264,7 @@ export default {
         const removeProduct = async (id) => {
           try {
             const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + `/${id}`;
-            const respuesta = await axios.delete(url);
+            const respuesta = await api.delete(url);
             return respuesta;
           } catch (error) {
             console.error('Error al obtener data:', error);
@@ -260,7 +285,8 @@ export default {
         ];
 
         const manageProduct = (producto) => {
-            product.value = producto ? { ...producto } : { id: '', nombre: '', descripcion: '', categoria: '', tipo_producto: '', valor: '', img: '' };
+            product.value = producto ? { ...producto } : { id: '', name: '', description: '', category: '', productType: '', value: '', img: '' };
+            categorySelected.value = producto ? producto.category : null;
             dialog.value = true;
         };
 
@@ -269,7 +295,7 @@ export default {
             if(valid){
                 if (product.value.id) {
                     const index = products.value.findIndex(p => p.id === product.value.id);
-                    const producto = await updateProduct(product.value, product.value.id);
+                    const producto = await updateProduct(product.value);
                     if(producto){
                         products.value.splice(index, 1, product.value);
                         window.$notify("Se ha actualizado correctamente el producto: " + producto.id, true);
@@ -279,16 +305,15 @@ export default {
                 } else {
                     // product.value.id = products.value.length + 1;
                     const producto = new Product();
-                    producto.nombre = product.value.nombre;
-                    producto.descripcion = product.value.descripcion;
-                    producto.categoria = product.value.categoria;
-                    producto.tipo_producto = product.value.tipo_producto;
-                    producto.valor = product.value.valor;
+                    producto.name = product.value.name;
+                    producto.description = product.value.description;
+                    producto.category = categorySelected.value;
+                    producto.productType = product.value.productType;
+                    producto.value = product.value.value;
                     producto.img = product.value.img;
-                    products.value.push(product.value);
                     const result = await createProduct(producto);
                     if(result){
-                        products.value.push(product.value);
+                        products.value.push(result.value);
                         window.$notify("Se ha creado correctamente el producto: " + result.id, true);
                     }else{
                         window.$notify("No se ha podido crear el producto.", false);
@@ -303,6 +328,11 @@ export default {
             confirmDialog.value = true;
         };
 
+        const onCategorySelect = (category) => {
+          if (category) {
+            categorySelected.value = category;
+          }
+        };
 
         const deleteProduct = async () => {
             if (productToDelete.value) {
@@ -326,6 +356,7 @@ export default {
 
         onMounted(() => {
             obtenerProducts();
+            getCategories();
         });
 
         return { 
@@ -339,6 +370,10 @@ export default {
             saveFormRef,
             rules,
             obtenerProducts,
+            getCategories,
+            onCategorySelect,
+            categories,
+            categorySelected,
             manageProduct, 
             saveProduct, 
             deleteProduct, 
