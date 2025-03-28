@@ -157,4 +157,13 @@ Resumen de las peticiones realizadas por el front con foco en la de realizar la 
 #Merge feature/sprint5 to main
 
 -----
+
+----- feature sprint5
+
+#Commit Chatbot integration
+Se crea un nuevo componente para la integración del chatbot de openAi para la plataforma ecommerce que va a funcionar
+a través de un iframe que podrá ser accedido desde cualquier parte del aplicativo.
+
+
+-----
 Copyright (c) 2016-present Vuetify, LLC
