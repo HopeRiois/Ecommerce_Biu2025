@@ -22,7 +22,7 @@
       </div>
       <iframe
         ref="chatFrame"
-        src="http://localhost:3001"
+        :src="frameUrl"
         class="chat-iframe"
       />
     </div>
@@ -56,7 +56,7 @@
   .chat-button {
     width: 60px;
     height: 60px;
-    background-color: #007bff;
+    background-color: #46494b;
     color: white;
     border: none;
     border-radius: 50%;
@@ -66,15 +66,15 @@
     transition: background 0.3s ease;
   }
   .chat-button:hover {
-    background-color: #0056b3;
+    background-color: #59626b;
   }
   
   .chat-frame {
     position: fixed;
     bottom: 90px;
     right: 20px;
-    width: 350px;
-    height: 500px;
+    width: 700px;
+    height: 550px;
     background: white;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -84,7 +84,7 @@
   }
   
   .chat-header {
-    background: #007bff;
+    background: #46494b;
     color: white;
     padding: 10px;
     display: flex;

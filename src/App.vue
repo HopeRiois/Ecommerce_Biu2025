@@ -3,7 +3,7 @@
     <v-main>
       <router-view />
       <Notification ref="notificationRef" />
-      <Chatbot />
+      <ChatBot />
     </v-main>
   </v-app>
 </template>
@@ -14,7 +14,6 @@ import Notification from "@/components/Notification.vue";
 import ChatBot from "@/components/ChatBot.vue";
 
 const notificationRef = ref(null);
-ChatBot.activated;
 const notify = (message, isSuccess) => {
   notificationRef.value?.showNotification(message, isSuccess);
 };
