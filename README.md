@@ -161,11 +161,21 @@ Resumen de las peticiones realizadas por el front con foco en la de realizar la 
 ----- feature sprint6
 
 #Commit Chatbot integration
+
 Se crea un nuevo componente para la integración del chatbot de openAi para la plataforma ecommerce que va a funcionar
 a través de un iframe que podrá ser accedido desde cualquier parte del aplicativo.
 
 #Commit Chatbot integration completed
+
 Se finaliza y corrige los bugs de la integración, permitiendo la correcta comunicación con el chatbot.
+
+Integración del chatbot mediante iframe, al cerrar la ventana únicamente se oculta el frame, la conversación permanece
+![image](https://github.com/user-attachments/assets/4b3cf72f-7890-4531-8c50-048bc4265aaa)
+
+Prueba de consulta sobre precios de los productos presentados desde el iframe del aplicativo principal
+![image](https://github.com/user-attachments/assets/69c1c9cc-6f46-49f7-b27a-6a3212bce7c2)
+
+#Merge feature/sprint6 to main
 
 -----
 Copyright (c) 2016-present Vuetify, LLC
