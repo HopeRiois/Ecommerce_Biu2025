@@ -246,8 +246,7 @@ export default {
 
     const obtenerItems = async () => {
       try {
-        console.log(import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + '/get-by-type?type=item');
-        const url = 'https://ecommercebe-ewanc0h9f4dwewec.canadacentral-01.azurewebsites.net/api/Product/get-by-type?type=item';
+        const url = import.meta.env.VITE_API_URL + import.meta.env.VITE_PRODUCT + '/get-by-type?type=item';   
         const respuesta = await api.get(url);
         items.value = respuesta.data;
       } catch (error) {

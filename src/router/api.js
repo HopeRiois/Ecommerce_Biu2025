@@ -19,12 +19,28 @@ api.interceptors.response.use(response => response, error => {
   return Promise.reject(error);
 });
 
-api.interceptors.request.use(config => {
-    const store = useAuthStore();
-    if (store) {
-      config.headers.Authorization = `Bearer ${store.logged.jwt}`;
+// api.interceptors.request.use(config => {
+//     const store = useAuthStore();
+//     if (store) {
+//       config.headers.Authorization = `Bearer ${store.logged.jwt}`;
+//     }
+//     return config;
+//   }, error => Promise.reject(error));
+
+api.interceptors.request.use(
+  (config) => {
+    try {
+      const store = useAuthStore();
+      if (store?.logged?.jwt) {
+        config.headers.Authorization = `Bearer ${store.logged.jwt}`;
+      }
+    } catch (error) {
+      console.error("Error obteniendo el store de autenticación:", error);
     }
     return config;
-  }, error => Promise.reject(error));
+  },
+  (error) => Promise.reject(error)
+);
+
 
 export default api;
