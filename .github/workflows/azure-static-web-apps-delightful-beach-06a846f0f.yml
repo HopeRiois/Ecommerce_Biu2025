@@ -8,7 +8,15 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
-
+env:
+  VITE_API_URL: ${{ secrets.VITE_API_URL }}
+  VITE_PRODUCT: ${{ secrets.VITE_PRODUCT }}
+  VITE_USER: ${{ secrets.VITE_USER }}
+  VITE_AUTH: ${{ secrets.VITE_AUTH }}
+  VITE_ORDER: ${{ secrets.VITE_ORDER }}
+  VITE_SALE: ${{ secrets.VITE_SALE }}
+  VITE_FRAME_URL: ${{ secrets.VITE_FRAME_URL }}
+  
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
